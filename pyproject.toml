@@ -1,0 +1,31 @@
+[project]
+name = "deficit_allocation_task"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "MeowthPxnk",email = "meowthpxnk@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["pydantic (>=2.14.2,<3.0.0)", "mpxnk-logging (>=1.0.0,<2.0.0)", "pyyaml (>=6.0.3,<7.0.0)"]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+# =============================================================================
+# 🛠️ alembic — Database Migrations
+# =============================================================================
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.1.1"
+ruff = "^0.17.4"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+[tool.alembic]
+script_location = "database"  # Folder with migration scripts
+prepend_sys_path = "."        # Add project root to sys.path
+version_path_separator = "os" # Use OS-specific separator (e.g., '/' or '\')
